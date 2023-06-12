@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Message Inbox</title>
+    <style>
+      body {
+        background: linear-gradient(#141e30, #243b55);
+        font-family: Arial, sans-serif;
+      }
+      
+      h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  text-decoration:underline;
+}
+
+      .forms-container {
+  position: absolute;
+  top: 50%;
+  left: calc(30% - 200px); /* adjust the value as needed */
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 600px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(0,0,0,.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      li {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      
+      li:hover {
+        background-color: #f1f1f1;
+      }
+      
+      li::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      li:first-child {
+        margin-top: 0;
+      }
+      
+      li:last-child {
+        margin-bottom: 0;
+      }
+      
+      .message-text {
+        font-weight: bold;
+      }
+      
+      .timestamp {
+        float: right;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- {% extends 'base.html' %} -->
+
+<!-- {% block content %} -->
+  <h1>Inbox</h1>
+  <ul>
+    {% for message in messages %}
+      <li>
+        <p>From: {{ message.sender }}</p>
+        <p>{{ message.message_text }}</p>
+        <p>Sent: {{ message.timestamp }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+  </body>
+</html>

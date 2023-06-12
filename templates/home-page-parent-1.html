@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parent home page</title>
+	<style>
+		/* html, body {
+			height: 100%;
+		background-image: url("static/images/home-page-parent.jpg");
+		/* position: cover; */
+    	/* background-repeat: no-repeat; */
+    	/* background-size: cover; */
+    	/* background-size : fixed; */
+    	/* background-position: center center; */
+		/* } */ 
+		html,body::before{
+			content: '';
+			background-image: url("static/images/home-page-parent.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* background-size : fixed; */
+			background-position: center center;
+			display: block;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			bottom: 0;
+			top: 0;
+			z-index: -100;
+		}
+.forms-container {
+  position: absolute;
+  top: 48%;
+  left: 49%;
+  padding: 35px;
+  transform: translate(-50%, -50%);
+  width: 1300px;
+  margin-top: 70px;
+  height: fit-content;
+  border: none;
+  border-radius: 15px;
+  background: rgba(0,0,0,.5); 
+  /* background: rgba(0,0,0,.5); */
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+    .underline-hover {
+    text-decoration: none;
+    position: relative;
+	padding-bottom: 40px;
+  }
+  .underline-hover::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background-color:#0189a3 ;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+.nav-up {
+			background-color: #141e35;
+			margin: 25px 363px;
+			position: static;
+max-width: fit-content;
+max-height: fit-content;
+			padding: 0;
+			border-radius: 15px;
+			background-color: #14b2de;
+			color: #fff;
+			display: flex;
+			justify-content: flex-end;
+			padding: 15px;
+			box-shadow: 0 15px 25px rgba(0,0,0,.6);
+			
+		}
+		.nav-up a {
+			color: #fff;
+			margin-left: 40px;
+			text-decoration: none;
+			padding-inline: 10px;
+			padding-block: 5px;
+			/* margin: 10px;
+            padding: 16px 32px; */
+            /* font-size: 24px; */
+            font-weight: bold;
+            /* color: #FFFFFF; */
+            /* background-color: #03e9f4; */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+		}
+		.nav-up a:hover {
+			/* text-decoration: underline; */
+			background-color: #fff;
+			color: #19c0da;
+			/* padding: 5px 10px; */
+			border-radius: 5px;
+			/* background-color: #FFFFFF; */
+            /* color: #03e9f4; */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+		#child-display {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 20px;
+			margin-bottom: 5em;
+		}
+		.child-card {
+			background-color: #eee;
+			border-radius: 10px;
+			box-shadow: 0 0 10px #19c0da;
+			display: flex;
+			flex-direction: column;
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			width: 200px;
+		}
+		.child-card img {
+			border-radius: 50%;
+			height: 100px;
+			margin-bottom: 10px;
+			width: 100px;
+		}
+		.child-card h3 {
+			margin: 0;
+		}
+		#add-child {
+			background-color: #141e35;
+			border: none;
+			border-radius: 50%;
+			bottom: 20px;
+			color: #fff;
+			font-size: 30px;
+			height: 60px;
+			position: fixed;
+			right: 20px;
+			width: 60px;
+			transition: all 0.3s ease-in-out;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		#add-child:hover {
+			background-color: #20b3dc;
+			color: #333;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+			transform: scale(1.1);
+		}
+        .table{
+            width: 80vw;
+            display: flex;
+            justify-content: space-evenly;
+            color:white;
+        }
+        .table th:hover {
+            background-color: #14b2de;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .table td {
+            padding: 1rem;
+			font-size: large;
+			font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        .table tr:hover {
+            background-color: #f5f5f5;
+        }
+        button a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+/* 		
+        button:hover a {
+            text-decoration: underline;
+        } */
+		#notifications{
+			border: none;
+			border-radius: 50%;
+			/* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+		}
+		#notifications a img{
+			color: #fff;
+			/* margin-left: 40px; */
+			text-decoration: none;
+			padding-inline: 10px;
+			padding-block: 5px;
+			/* margin: 10px;
+            padding: 16px 32px; */
+            /* font-size: 24px; */
+            font-weight: bold;
+            /* color: #FFFFFF; */
+            /* background-color: #03e9f4; */
+            border: none;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+		}
+		#notifications a img:hover{
+			background-color: #fff;
+			color: #19c0da;
+			/* padding: 5px 10px; */
+			border-radius: 100%;
+			/* background-color: #FFFFFF; */
+            /* color: #03e9f4; */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+		
+	</style>
+</head>
+
+<body>
+	<nav class="nav-up">
+		<a href="{{ url_for('home') }}">HOME</a>
+		<!-- <a href="{{ url_for('home') }}">KEYLOGGER</a> -->
+		<a href="{{ url_for('about_us') }}">ABOUT US</a>
+		<a href="{{ url_for('how_to_use') }}">HOW TO USE</a>
+		<a href="/logout">LOG OUT</a>
+	</nav>
+	<!-- <h1 align="left" style="color:#0189a3; text-decoration:underline;">Parental Control System</h1> -->
+	<!-- <h1 style="color:white" align="center" class="underline-hover">Child Display</h1> -->
+	<!-- <thead>
+		<th>Photo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		<th>Name</th>
+			<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date of Birth</th>
+			<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID</th>
+			<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notification</th>
+		</tr>
+	</thead> -->
+	<div class="forms-container">
+		<table>
+        <tbody>
+			{% for child in children %}
+            <tr class="table">
+                <td class="table-column"><img src="{{ url_for('static', filename='Child_uploads/' + child['image']) }}" alt="{{ child['name'] }}" style="width:300px; height:200px; aspect-ratio: 1.2; margin-bottom: 1rem;"></td>
+                <td>{{ child['name'] }}</td>
+                <td>{{ child['dob'] }}</td>
+                <td>{{ child['_id'] }}</td>
+                <td><button id="notifications" style="background-color: transparent;"> <a href="/notification/{{child['email']}}"><img src="static/images/pcs-mp.svg" width="30"></a></button></td>
+				<td><button id="notifications" style="background-color: transparent;"> <a href="/downloads/{{child['_id']}}"><img src="static/images/downloadicon.svg" width="30"></a></button></td>
+				<td><button id="notifications" style="background-color: transparent;"> <a href="/keylogger/{{child['_id']}}"><img src="static/images/keyloggericon.svg" width="30"></a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+	</table>
+	</div>
+	<button id="add-child"> <a href="{{ url_for('create_child') }}">+</a></button>
+</body>
+</html>

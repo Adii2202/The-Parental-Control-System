@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How to Use</title>
+    <style>
+        
+            body::before{
+			content: '';
+			background-image: url("static/images/add-page-child.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* background-size : fixed; */
+			background-position: center center;
+			display: block;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			bottom: 0;
+			top: 0;
+			z-index: -100;
+            }
+        
+      /* Styling for the container div */
+      .container1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+      }
+      .container2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+      }
+      .container3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+      }
+      .container4 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+      }
+      /* Styling for the image on the left */
+      .image-1 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/home-page-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .image-3 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/parent-home-page-nav-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .image-4 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/keylogger-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .image-5 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/child-profile-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .image-6 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/child-home-page-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .image-2 {
+        width: 50%;
+        height: 50%;
+        background-image: url("static/images/login-parent-ss.png");
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      /* Styling for the instructions on the right */
+      .instructions {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+      }
+      
+      /* Styling for the instructions heading */
+      .instructions h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        transition: color 0.3s ease-in-out;
+      }
+      
+      /* Styling for the instructions text */
+      .instructions p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        transition: color 0.3s ease-in-out;
+      }
+      
+      /* Hover styling for the image */
+      .image:hover {
+        transform: scale(1.1);
+      }
+      
+      /* Hover styling for the instructions heading */
+      .instructions h1:hover {
+        color: #ff7f50;
+        cursor: pointer;
+      }
+      
+      /* Hover styling for the instructions text */
+      .instructions p:hover {
+        color: #778899;
+        cursor: pointer;
+      }
+      .button a{
+        text-decoration: none;
+      }
+      .button {
+        position: fixed;
+            margin: 10px;
+            padding: 16px 32px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #03e9f4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #FFFFFF;
+            color: #03e9f4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #03e9f4, 0 0 0 4px #03e9f4;
+        }
+        .choose {
+            color: #03e9f4;
+        }
+        .button:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+    </style>
+  </head>
+  <body>
+    <button class="button"><a href="/home-page-parent">
+        Return</a>
+    </button>
+    <div class="container1">
+      <div class="image-1"></div>
+      <div class="instructions">
+        <h1>Home Page</h1>
+        <p>After Landing on the home page there will two options go to the parent device if you are a parent or if you are a child then when your parent registers and adds a child profile then only you will be able to login</p>
+    </div>
+    <div class="image-2"></div>
+    <div class="instructions">
+        
+        <h1>Parent Device Login and Register</h1>
+        
+        <p>
+            Register parent if you are new if you already have an account then Login
+        </p>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="image-3"></div>
+    <div class="instructions">
+      <h1>Home page PARENT</h1>
+      <p>The child display with their names, dob and their ids with each child performing functions like downlaod history, keylogging, smtp mail service + four navigation bar options namely login, how to use, about us, logout + add child option on the down bottom side</p>
+  </div>
+  <div class="image-4"></div>
+  <div class="instructions">
+      
+      <h1>Keylogger with NLP Generator</h1>
+      
+      <p>
+          This will record the keystrokes in a report file of that particular child and then will summarize it using nlp
+      </p>
+  </div>
+</div>
+
+<div class="container3">
+    <div class="image-5"></div>
+    <div class="instructions">
+      <h1>CHILD PROFILE</h1>
+      <p>This will display the profile of the child     </p>
+  </div>
+</div>
+<div class="container4">
+    <div class="image-6"></div>
+    <div class="instructions">
+      <h1>Home page Child</h1>
+      <p>An Article display with some cyber security information + three navigation bar options namely home, about us, logout, profile</p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Child home page</title>
+	<style>
+		html,
+		body {
+			/* position: cover; */
+			margin: 0;
+			padding: 0;
+
+		}
+		body::before{
+			content: '';
+			background-image: url("static/images/home-page-parent.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* background-size : fixed; */
+			background-position: center center;
+			display: block;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			bottom: 0;
+			top: 0;
+			z-index: -100;
+		}
+
+		.forms-container p {
+			background-color: #7ee7f8;
+			border-radius: 20px;
+			margin: 60px;
+			padding: 40px;
+			font-size: large;
+		}
+
+		.forms-container {
+			position: absolute;
+			top: 48%;
+			left: 49%;
+			padding: 35px;
+			transform: translate(-50%, -50%);
+			width: 1300px;
+			margin-top: 70px;
+			height: fit-content;
+			border: none;
+			border-radius: 15px;
+			background: rgba(0, 0, 0, .5);
+			/* background: rgba(0,0,0,.5); */
+			box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+		}
+
+		nav {
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			justify-content: flex-end;
+			padding: 10px;
+		}
+
+		nav a {
+			color: #fff;
+			margin-left: 10px;
+			text-decoration: none;
+		}
+
+		nav a:hover {
+			text-decoration: underline;
+		}
+
+		#child-display {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		.child-card {
+			background-color: #eee;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			display: flex;
+			flex-direction: column;
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			width: 200px;
+		}
+
+		.child-card img {
+			border-radius: 50%;
+			height: 100px;
+			margin-bottom: 10px;
+			width: 100px;
+		}
+
+		.child-card h3 {
+			margin: 0;
+		}
+
+		#add-child {
+			background-color: #333;
+			border: none;
+			border-radius: 50%;
+			bottom: 20px;
+			color: #fff;
+			font-size: 30px;
+			height: 60px;
+			position: fixed;
+			right: 20px;
+			width: 60px;
+		}
+
+		.table {
+			width: 80vw;
+			display: flex;
+			justify-content: space-evenly;
+
+		}
+
+		.nav-up {
+			background-color: #141e35;
+			margin: 25px 363px;
+			position: static;
+			max-width: fit-content;
+			max-height: fit-content;
+			padding: 0;
+			border-radius: 15px;
+			background-color: #14b2de;
+			color: #fff;
+			display: flex;
+			justify-content: flex-end;
+			padding: 15px;
+			box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+
+		}
+
+		.nav-up a {
+			color: #fff;
+			margin-left: 40px;
+			text-decoration: none;
+			padding-inline: 10px;
+			padding-block: 5px;
+			/* margin: 10px;
+            padding: 16px 32px; */
+			/* font-size: 24px; */
+			font-weight: bold;
+			/* color: #FFFFFF; */
+			/* background-color: #03e9f4; */
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			/* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+		}
+
+		.nav-up a:hover {
+			/* text-decoration: underline; */
+			background-color: #fff;
+			color: #19c0da;
+			/* padding: 5px 10px; */
+			border-radius: 5px;
+			text-decoration: none;
+			/* background-color: #FFFFFF; */
+			/* color: #03e9f4; */
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		}
+	</style>
+
+</head>
+
+<body>
+	<nav class="nav-up">
+		<a href="{{ url_for('home') }}">HOME</a>
+
+		<a href="{{ url_for('about_us') }}">ABOUT US</a>
+
+		<a href="/logout">LOG OUT</a>
+
+		<a href="/profile">PROFILE</a>
+		<a href="/website">MESSAGES</a>
+	</nav>
+	<!-- <div class="profile">
+			</div> -->
+	<!-- <div class="forms-container">
+		<p>It's important for children to be aware of inappropriate content on the internet so that they can avoid it
+			and stay safe online. Here are some tips to help children become aware of inappropriate content:
+
+			Start with age-appropriate education: The younger the child, the more basic the education on internet safety
+			and inappropriate content should be. You can start by explaining the difference between good and bad
+			websites and what types of things they might come across online that are not appropriate.
+
+			Establish clear boundaries: You should establish clear boundaries for what is and isn't appropriate for your
+			child to view online. This can include setting up parental controls or filters, as well as making rules
+			about what types of websites and online activities are allowed.
+
+			Encourage communication: Encourage your child to talk to you if they see something online that makes them
+			uncomfortable or if they have any questions. Be open and non-judgmental when they come to you with concerns,
+			and take their worries seriously.
+
+			</p>
+	</div> -->
+	<section class="recentNews">
+		<div class="container">
+			<h2 class="news-title"></h2>
+			<div class="row">
+				<div class="ct-blog col-sm-6 col-md-4">
+					<div class="inner">
+						<div class="fauxcrop">
+							<a href="#"><img alt="News Entry"
+									src="https://www.duocircle.com/wp-content/uploads/2022/05/email-security-week-17-22.jpg"></a>
+						</div>
+						<div class="ct-blog-content">
+							<div class="ct-blog-date">
+								<span>Inappropriate</span><strong>Content</strong>
+							</div>
+							<h4 class="ct-blog-header">
+								It is important for parents and guardians to monitor their child's online activity and take appropriate measures to protect them from exposure to inappropriate content. This can include using parental control software, setting up content filters, or having open and honest conversations with your children about online safety and appropriate online behavior.
+							</h4>
+						</div>
+					</div>
+				</div>
+					<div class="inner">
+						<div class="fauxcrop">
+							<a href="#"><img alt="News Entry"
+									src="https://eco-cdn.iqpc.com/eco/images/channel_content/images/cyber_attack_in_newspaper_headlines.jpg" style="height: 100%;width: 100%;"></a>
+						</div>
+						<div class="ct-blog-content">
+							<div class="ct-blog-date">
+								<span>March</span><strong>1</strong>
+							</div>
+							<h4 class="ct-blog-header">
+								To stay safe from cyber attacks, there are several measures you can take:
+
+Keep your software and operating system up to date: Regularly update your software and operating system with the latest security patches to protect against known vulnerabilities.
+
+Use strong passwords: Use unique, complex passwords for each of your accounts, and consider using a password manager to securely store them.
+
+Enable two-factor authentication: Use two-factor authentication whenever possible to add an extra layer of security to your accounts.
+
+Be cautious of suspicious emails: Be wary of unsolicited emails, especially those with attachments or links. Don't open attachments or click on links unless you are sure they are safe.
+
+Use antivirus and anti-malware software: Install reputable antivirus and anti-malware software to protect against viruses, malware, and other malicious software.
+
+Use a VPN: Use a Virtual Private Network (VPN) when accessing the internet from public networks or when using public Wi-Fi.
+
+Be cautious of what you share online: Be careful about what personal information you share online, and who you share it with. Limit the amount of personal information you share on social media.
+
+By following these best practices, you can reduce your risk of becoming a victim of cyber attacks and protect your sensitive information.
+							</h4>
+						</div>
+					</div>
+		</div>
+	</section>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="recent-news-boxes.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

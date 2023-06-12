@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Send Message</title>
+    <style>
+      /* Add some basic styles */
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(#141e30, #243b55);
+      }
+      
+     form {
+  width: 310px;
+  margin: 0 auto;
+  margin-left: 30px;
+}
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color:white;
+      }
+.forms-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(0,0,0,.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="forms-container">
+    <h1 align="center" style="color:white">Send Message</h1>
+    <h4 style="color:aliceblue">  Follow this : <l>disable the 2 step verification</l>
+    <l>Enable less secure apps</l> </h4>
+    <form method="post" action="{{ url_for('send_message') }}">
+      <label for="sender">Password:</label>
+      <input type="password" name="password" id="sender">
+      <!-- <br> -->
+      <br>
+      <label for="message_text">Message:</label>
+      <textarea name="message_text" id="message_text" required></textarea>
+      <br>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+  </body>
+</html>

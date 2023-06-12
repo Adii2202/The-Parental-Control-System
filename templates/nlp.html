@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NLP Summary Generator</title>
+    <style>
+        /* CSS for loading animation */
+        body{
+            
+            font-family: Arial, sans-serif;
+            text-align: center;
+            /* height: 100%; */
+            background-image: url("static/images/nlp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size : fixed;
+    background-position: center center;
+    margin: 150px;
+    overflow: hidden;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* CSS for beautified site layout */
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #141e30;
+            /* color:#3498db; */
+            text-decoration: none;
+            margin: 10px;
+            /* padding: 6px 18px; */
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #3498db;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none; /* Hide the download button initially */
+        }
+        input[type="submit"]:hover{
+            background-color: #FFFFFF;
+            color: #03e9f4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .return-btn { 
+            /* color:#3498db; */
+            text-decoration: none;
+            margin: 10px;
+            padding: 6px 18px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #3498db;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .return-btn:hover{
+            background-color: #FFFFFF;
+            color: #03e9f4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .return-btn a{
+            text-decoration: none;
+            /* color: #141e30; */
+        }
+    </style>
+</head>
+<body>
+    <h1>NLP Summary Generator</h1>
+    <p>{{ message }}</p>
+    <form action="/upload/{{child_id}}" method="post" enctype="multipart/form-data">
+        <input type="submit" value="Generate Summary">
+        <div class="loader"></div> <!-- Add loading animation element -->
+    </form>
+    <form action="/download/{{child_id}}" method="get">
+        <input type="submit" value="Download Summary" id="downloadBtn">
+        <button class="return-btn" ><a href="{{ url_for('homepageparent') }}">RETURN</a></button>
+    </form>
+    <script>
+        // JavaScript to show/hide loading animation and download button
+        document.querySelector('form').addEventListener('submit', function() {
+            document.querySelector('input[type="submit"]').style.display = 'none'; // Hide the generate summary button
+            document.querySelector('.loader').style.display = 'block'; // Show the loading animation
+        });
+
+        // Function to show download button when summary is ready
+        function showDownloadButton() {
+            document.querySelector('.loader').style.display = 'none'; // Hide the loading animation
+            document.querySelector('#downloadBtn').style.display = 'inline-block'; // Show the download button
+        }
+
+        // Call the showDownloadButton function after a delay of 3 seconds (you can adjust this value)
+        setTimeout(showDownloadButton, 3000);
+    </script>
+</body>
+</html>

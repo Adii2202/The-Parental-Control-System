@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Device Sign In/Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Set a background color for the body */
+     body {
+       background: linear-gradient(#141e30, #243b55);
+       background-image: url("static/images/project.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size : fixed;
+    background-position: center center;
+    /* overflow-x: hidden; */
+     }
+     
+     /* Center the container horizontally and vertically */
+     .container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+     }
+     
+     /* Create a border around the forms container */
+     .forms-container {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 412px;
+       height: 370px;
+       border: none;
+       border-radius: 10px;
+       background: rgba(7,32,61,1.0);
+       box-shadow: 0 15px 25px rgba(0,0,0,.6);
+     }
+     
+     /* Center the sign in and sign up form */
+     .signin-signup {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 80%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+     }
+     
+     /* Style the title */
+     .title {
+       font-size: 2rem;
+       margin-bottom: 20px;
+       color: #333;
+       cursor: pointer;
+     }
+     
+     /* Style the input field icons */
+     .input-field i {
+      padding: inline;
+       font-size: 1.2rem;
+       margin-right: 10px;
+       padding: 10px;
+       color: #999;
+     }
+     
+     /* Style the input fields */
+     .input-field input {
+       width: 100%;
+       padding: 10px;
+       border-radius: 5px;
+       border: 1px solid #999;
+       outline: none;
+     }
+     
+     /* Style the submit button */
+     .btn {
+       display: inline-block;
+       padding: 10px 20px;
+       background-color: #333;
+       color: #fff;
+       border-radius: 5px;
+       border: none;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+     }
+     
+     .btn:hover {
+       background-color: #555;
+     }
+     
+     
+     /* Style the register link */
+     .register-link {
+       margin-top: 20px;
+       font-size: 1rem;
+       color: #333;
+     }
+     
+     .register-link a {
+       color: white;
+       text-decoration: none;
+       font-size: medium;
+       margin: 6px;
+      padding: 10px 12px;
+      /* font-size: 24px; */
+      font-weight: bold;
+      /* color: #FFFFFF; */
+      background-color: #03e9f4;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+     }
+     
+     .register-link a:hover {
+       color: #03e9f4;
+       /* color: white; */
+       text-decoration: none;
+       background-color: #FFFFFF;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+     }
+     
+       </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          {% if session %}
+          <p style="color: #f2f3f7;">{{session['papaji']}}</p>
+          {%endif%}
+          <form action="{{ url_for('register') }}" method="POST" class="sign-up-form">
+            <h2 class="title" style="color:#0069d9">Login</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="ID" name="ID" />
+            </div>
+            <!-- <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" name="email" />
+            </div> -->
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" name="password" />
+            </div>
+            <input type="submit" value="Sign in" class="btn solid" />
+          </form>
+          <p class="register-link" style="color:whitesmoke">Already have an account? <a href="{{url_for('register_parent')}}">Register</a></p>
+        </div>
+      </div>
+      {% if error_message %}
+      <p style="color: wheat;">{{error_message}}</p>
+    </div>
+    {% endif %}
+    <script src="./app.js"></script>
+  </body>
+</html>

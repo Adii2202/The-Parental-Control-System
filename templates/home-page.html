@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        /* Reset default styles */
+        body {
+    background-image: url("static/images/project-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size : fixed;
+    background-position: center center;
+    overflow-x: hidden;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body {
+            background-color: #243b55;
+            font-family: Arial, sans-serif;
+        }
+    
+        .content {
+            min-height: 100vh;
+            min-width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-logo{
+            width: 100vw;
+            height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .img-logo:hover {
+            transform: scale(1.2);
+        }
+        .img-logo img {
+            width: 100%;
+            max-width: 200px;
+            transition: all 0.3s ease;
+        }
+        .img-logo:hover img {
+            transform: rotate(360deg);
+        }
+        h2 {
+            font-size: 36px;
+            font-style:Georgia;
+            color : #FFFFFF;
+            margin-top: 50px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 #141e30, 0 0 0.5em #141e30;
+            /* border: 2px solid #03e9f4; */
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        h2:hover {
+            /* color: #acc3ec; */
+            /* border : #03e9f4; */
+            cursor : pointer;
+
+            color: #03e9f4;
+    border-color: #FFFFFF;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .button {
+            margin: 10px;
+            padding: 16px 32px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #03e9f4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #FFFFFF;
+            color: #03e9f4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #03e9f4, 0 0 0 4px #03e9f4;
+        }
+        .choose {
+            color: #03e9f4;
+        }
+        .button:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .button:disabled {
+            background-color: #c3c3c3;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .button:disabled:hover {
+            color: #FFFFFF;
+        }
+        .text-element span {
+  display: inline-block;
+  opacity: 0;
+}
+
+.text-element span:nth-child(1) {
+  animation: drop 1s ease-in-out 0.1s forwards;
+}
+
+.text-element span:nth-child(2) {
+  animation: drop 1s ease-in-out 0.2s forwards;
+}
+
+.text-element span:nth-child(3) {
+  animation: drop 1s ease-in-out 0.3s forwards;
+}
+
+.text-element span:nth-child(4) {
+  animation: drop 1s ease-in-out 0.4s forwards;
+}
+
+.text-element span:nth-child(5) {
+  animation: drop 1s ease-in-out 0.5s forwards;
+}
+
+.text-element span:nth-child(6) {
+  animation: drop 1s ease-in-out 0.6s forwards;
+}
+
+.text-element span:nth-child(7) {
+  animation: drop 1s ease-in-out 0.7s forwards;
+}
+
+.text-element span:nth-child(8) {
+  animation: drop 1s ease-in-out 0.8s forwards;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="img-logo">
+            <img src="../static/images/pcs-logo.png" alt="something" srcset="" style="width: 100px; aspect-ratio: 1;">
+        </div>
+        <h2 class="text-element">
+            <span>The</span>
+            <span>all-in-one</span>
+            <span>parental</span>
+            <span>control</span>
+            <span>and</span>
+            <span>digital</span>
+            <span>wellbeing</span>
+            <span>solution</span>
+          </h2>
+          
+        <div class="buttons">
+            <a href="{{ url_for('login') }}"><button class="button">Parent Device</button></a>
+            <a href="{{ url_for('login_child') }}"><button class="button">Child Device</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

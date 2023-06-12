@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+	<style>
+		body {
+			background: linear-gradient(#141e30, #243b55);
+			font-family: Arial, sans-serif;
+			color: white;
+			height: 653px;
+			/* background: linear-gradient(#141e30, #243b55); */
+       background-image: url("static/images/register-parent.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+       background-size : fixed;
+       background-position: center center;
+		}
+	
+		.forms-container {
+			margin: auto 550px;
+			margin-top: 50px;
+			padding: 20px;
+			width: 400px;
+			background: rgba(0,0,0,.5);
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px grey;
+		}
+	
+		h2 {
+			text-align: center;
+			margin-top: 0;
+		}
+	
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+	
+		label {
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+	
+		input[type=text],
+	input[type=password] {
+	  width: 100%;
+	  padding: 12px;
+	  margin: 10px 0;
+	  border: none;
+	  border-radius: 0;
+	  box-sizing: border-box;
+	  border-bottom: 2px solid white;
+	  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	  background-color: transparent;
+	  color: white;
+	}
+	
+	input[type=text]:focus,
+	input[type=password]:focus {
+	  border-bottom: 2px solid #4CAF50;
+	}
+	
+	
+		button[type=submit] {
+			background-color: #141e30 ;
+			color: white;
+			height: 40px;
+    width: 82px;
+		}
+	
+		.text-danger {
+			color: red;
+			font-weight: bold;
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- <h1 align="left" style="color:#0189a3; text-decoration:underline;">Parental Control System</h1> -->
+	<div class="forms-container">
+		<h1><img src="/static/images/pcs-logo.png" alt="Logo" padding="0 20px 0 0" height="35"> Registration</h1>
+		<form action="{{ url_for('register_parent') }}" method="POST">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required>
+			
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" required>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+			<label for="confirm_password">Confirm Password</label>
+			<input type="password" id="confirm_password" name="confirm_password" required>
+			<div class="text-danger" id="error-message"></div>
+			<button type="submit">Register</button>
+			
+		</form>
+	</div>
+
+	<script>
+		const passwordField = document.getElementById('password');
+		const confirmPasswordField = document.getElementById('confirm_password');
+		const errorMessage = document.getElementById('error-message');
+
+		confirmPasswordField.addEventListener('input', () => {
+			if (confirmPasswordField.value !== passwordField.value) {
+				errorMessage.textContent = "Passwords don't match";
+			} else {
+				errorMessage.textContent = "";
+			}
+		});
+	</script>
+</body>
+</html>

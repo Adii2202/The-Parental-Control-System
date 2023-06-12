@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Child Add Page</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+
+	body {
+		background: linear-gradient(#141e30, #243b55);
+	  margin: 0;
+	  padding: 0;
+	  font-family: Arial, sans-serif;
+	  /* background: linear-gradient(#141e30, #243b55); */
+  /* background: linear-gradient(#141e30, #243b55); */
+       background-image: url("static/images/add-page-child.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size : fixed;
+    background-position: center center;
+  }
+  
+  .container {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  height: 100vh;
+  }
+  
+  .child-add-container {
+	  margin: auto;
+	  margin-top: 50px;
+	  padding: 20px;
+	  width: 500px;
+	  background: rgba(0, 0, 0, .5);
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 10px grey;
+	  max-width: 600px;
+	  border: none;
+  }
+  
+  .child-add-container h2 {
+	  margin-top: 0;
+	  text-align: center;
+  }
+  
+  form {
+	  display: flex;
+	  flex-direction: column;
+  }
+  
+  label {
+	  margin-top: 10px;
+		color:white;
+  }
+  
+  input[type="text"], input[type="date"] {
+	  padding: 10px;
+	  border-radius: 5px;
+	  border: none;
+	  margin: 10px 0px;
+	  margin-bottom: 10px;
+  }
+  
+  .image-upload {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  margin-top: 10px;
+  }
+  
+  .image-upload label {
+	  padding: 10px;
+	  background-color: #03e9f4;
+	  color: white;
+	  border-radius: 5px;
+	  cursor: pointer;
+	  margin-bottom: 10px;
+	  margin-top: 10px; /* add spacing at the top */
+	  width: 120px; /* set a fixed width to align the button */
+	  text-align: center; /* center the button text */
+  }
+  
+  
+  #preview {
+	  max-width: 100%;
+  }
+  
+  .preview-container {
+	display: flex;
+	overflow: auto;
+	align-items: center;
+	justify-content: center;
+	height: 120px;
+	margin-bottom: 10px;
+  }
+  
+  
+  input[type="submit"] {
+	  padding: 10px;
+	  background-color: #03e9f4;
+	  color: white;
+	  border: none;
+	  border-radius: 5px;
+	  cursor: pointer;
+	  margin-top: 10px;
+  }
+input[type="file"]{
+	color: #03e9f4;
+}
+
+  input[type="email"]{
+	margin: 10px 0px;
+	padding: 5px;
+  }
+  
+  @media screen and (max-width: 600px) {
+	  .child-add-container {
+		  width: 90%;
+	  }
+  }
+  
+  </style>
+</head>
+<body>
+	<div class="container">
+		<div class="child-add-container">
+			<h2 style="color:#03e9f4">Add Child Information</h2>
+			<form action="{{ url_for('add_child') }}" method="POST" enctype="multipart/form-data">
+				<label for="name">Child's Name</label>
+				<input type="text" name="name" required>
+
+				<label for="dob">Date of Birth</label>
+				<input type="date" name="dob" required>
+
+				<label for="email">Email</label>
+				<input type="email" name="email" required>
+
+				<div class="image-upload">
+					<label for="image">Upload an Image</label>
+					<input type="file" name="image" id="image" accept="image/*" onchange="previewImage(this);">
+				</div>
+
+				<div class="preview-container">
+					<img id="preview" src="" alt="">
+				</div>
+
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+	<script>
+		function previewImage(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					document.getElementById('preview').src = e.target.result;
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
+</body>
+</html>

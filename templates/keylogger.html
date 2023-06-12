@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title >Keylogger</title>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha384-GL8VI1TebKtvDL+H+mD40DFF8ewvEgefDCkmKjFmTYBJnPSgT1eKIBjPiCzniex/" crossorigin="anonymous">
+    <!-- Add custom CSS for animations and transitions -->
+    <style>
+        .text-center{
+            color: aqua;
+        }
+           body {
+            background-color: #141e35;
+  background-image: url('static/images/keylogger.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+        .forms-container {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             width: 387px;
+             height: 285px;
+             border: none;
+             border-radius: 10px;
+             background: rgba(0,0,0,.5);
+             box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+       /* Button styles */
+        /* Button styles */
+.btn {
+  display:block;
+  font-weight: 200px;
+  color: #fff;
+  text-align: center;
+  /* vertical-align: middle; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #007bff;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size:15px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  block-size:45px;
+}
+
+/* Primary button style */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Secondary button style */
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: transparent;
+  border-color: #0062cc;
+}
+
+/* Link hover effect */
+.btn a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.summary-link {
+  color: #fff;
+  font-size:20px;
+  text-decoration:none;
+}
+       h2 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-decoration: underline;
+        }
+        label {
+            color:white;
+            font-size: 1.5rem;
+        }
+        #downloadButton {
+            background-color: tran;    
+            /* border-color: #35b2dc; */
+            font-size: 17.5px;
+            font-weight: 500;
+            margin-top: 2rem;
+        }
+        #downloadButton a {
+            text-decoration: none;
+            color: aqua;
+        }
+        #downloadButton:hover {
+            background-color: #141e38 ;       
+            /* border-color: #005cbf; */
+            transform: scale(1.05);
+        }
+        #downloadButton:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        }
+
+    </style>
+    <body>
+        <div align="center" class="forms-container">
+        <div class="container mt-5">
+            <h1 class="text-center">Keylogger</h1>
+            <form id="toggleForm" class="text-center mt-4">
+                <div class="form-check form-switch">
+                    <input class="form-check-input toggle" type="checkbox" id="toggleCheckbox">
+                    <label class="form-check-label" for="toggleCheckbox">Toggle Keylogger</label>
+                </div>  
+            </form>
+            <button id="downloadButton" class="btn btn-primary btn-lg btn-block">GET THIS REPORT</button>
+            <button id="downloadButton" class="btn btn-primary btn-lg btn-block"> <a href="/nlp_run/{{child_id}}">SUMMARIZE THIS REPORT</a></button>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#toggleCheckbox").change(function () {
+                    var isChecked = $(this).prop("checked");
+                    var url = isChecked ? "/toggle" : "/toggle";
+                    $.post(url, function (data) {
+                        if (data.status === "success") {
+                            console.log("Toggle success");
+                        } else {
+                            console.log("Toggle failed");
+                        }
+                    });
+                });
+                $("#downloadButton").click(function () {
+            window.location.href = "/download_keylogger/{{child_id}}";
+        });
+    });
+</script>
+<!-- Add Bootstrap JS for transitions -->
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCW2KfM9+KCAVpFYY5EnGK/nKfFF87pFp+VXJhKkNl" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"
+    integrity="sha384-Mr1CQe1HtzJdc0QU+PFO+Lj6HRa+6duH4yaNraZg8Ndm+VKKUfjFpja4Gy+x/4=" crossorigin="anonymous">
+</script>
+</body>
+</html>

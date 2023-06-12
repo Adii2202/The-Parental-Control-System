@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<title>Downloads</title>
+    <style>
+		html,body {
+    background-image: url("static/images/downloads-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-size : fixed; */
+    background-position: center center;
+    /* overflow-x: hidden; */
+	height: 100%;
+	
+}
+		/* body { */
+
+    /* background-image: url("static/images/project-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size : fixed;
+    background-position: center center;
+    overflow-x: hidden; */
+/* } */
+.forms-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(0,0,0,.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+.lines{
+	line-height: 1.5rem;
+	background-color: #99f6fb;
+	width: 769px;
+	display: inline-block;
+	height: auto;
+	padding: 30px 98px;
+	border-radius: 20px;
+	font-size: large;
+	color: #141e35;
+	font-weight: bold;
+	box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+	</style>
+</head>
+<body>
+	<h1>Downloads</h1>
+	{% if message %}
+	<!-- <div class="forms-container"> -->
+		<p>{{ message }}</p>
+		{% endif %}
+		{% if output_docs %}
+		<ul class="forms-container">
+		{% for doc in output_docs %}
+		<p class="lines">{{ doc['timestamp'] }} - {{ doc['content'] }}</p>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p>No reports found in MongoDB</p>
+	
+<!-- </div> -->
+	{% endif %}
+</body>
+</html>
